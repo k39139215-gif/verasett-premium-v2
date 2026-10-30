@@ -1,0 +1,84 @@
+/* Hallmark · reference-led Verasett · redesign: restyle · scope: app · copy: verbatim */
+/* Critique: precise neutral hierarchy, legible metadata, restrained source-backed controls. */
+.matrix { container: allocation-matrix / inline-size; width: 100%; min-width: 0; box-shadow: var(--v2-shadow); background: var(--va-surface); border: 1px solid var(--va-border); border-radius: var(--v2-radius); overflow: clip; }
+.heading { padding: 24px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.kicker { font-size: 11px; font-weight: 550; letter-spacing: 0; color: var(--va-muted); }
+.kicker span { margin-left: 12px; color: var(--v2-faint); }
+.heading h2 { font-size: 22px; font-weight: 560; line-height: 1.3; min-width: 0; overflow-wrap: anywhere; letter-spacing: -.025em; margin: 8px 0; }
+.subheading { font-size: 12px; color: var(--va-muted); }
+.demo { font-size: 11px; color: var(--va-muted); border: 1px solid var(--va-border); padding: 4px 8px; border-radius: var(--v2-control-radius); white-space: nowrap; }
+.receipt { background: var(--v2-subtle); border-block: 1px solid var(--va-border); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.identity, .receiptAmount { display: grid; gap: 4px; min-width: 0; overflow-wrap: anywhere; }
+.label { font-size: 11px; font-weight: 500; color: var(--va-muted); letter-spacing: 0; }
+.identity strong { font-weight: 560; font-size: 14px; }
+.identity > span:last-child, .receiptAmount > span:last-child { font-size: 11px; color: var(--va-muted); }
+.receiptAmount { text-align: right; }
+.receiptAmount strong { font-size: 26px; font-weight: 520; line-height: 1.25; letter-spacing: -.025em; }
+.matrixLabel { display: flex; gap: 16px; align-items: center; justify-content: space-between; padding: 16px 24px; color: var(--va-muted); font-size: 11px; }
+.mobilePicker { display: none; }
+.table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums lining-nums; }
+.table th, .table td { padding: 8px 16px; height: 52px; text-align: right; vertical-align: middle; border-bottom: 1px solid var(--va-border); overflow-wrap: anywhere; }
+.table thead th { padding-block: 0; background: var(--v2-subtle); border-top: 1px solid var(--va-border); font-weight: 450; font-size: 11px; color: var(--va-muted); }
+.table .rowHeading, .table tbody th, .table tfoot th { padding-left: 24px; text-align: left; }
+.rowHeading { width: 25%; }
+.table .totalColumn { width: 20%; padding-right: 24px; background: var(--v2-subtle); }
+.table tbody th strong, .table tfoot th strong { display: block; font-weight: 550; font-size: 13px; }
+.table tbody th span, .table tfoot th span { display: block; font-weight: 400; font-size: 11px; color: var(--va-muted); margin-top: 4px; }
+.table thead button { width: 100%; min-height: 52px; padding: 8px 0; border: 0; background: var(--v2-transparent); cursor: pointer; text-align: right; display: grid; justify-items: end; gap: 4px; color: var(--va-text); font-size: 11px; line-height: 1.35; overflow-wrap: anywhere; }
+.columnNumber { font-size: 11px; color: var(--va-muted); letter-spacing: 0; }
+.table .invoiceColumn[data-selected="true"] { background: var(--v2-accent-soft); }
+.table thead .invoiceColumn[data-selected="true"] { box-shadow: inset 0 2px var(--va-green); }
+.table tbody tr[data-cash="true"] td { font-weight: 570; }
+.table tfoot th, .table tfoot td { border-top: 1px solid var(--v2-line-strong); border-bottom: 0; padding-block: 16px; font-weight: 520; }
+.table button:active { background: var(--v2-accent-soft); }
+.matrix :where(button, select):focus-visible { outline: 2px solid var(--va-blue); outline-offset: 3px; }
+.trace { border-top: 1px solid var(--va-border); padding: 20px 24px; display: flex; gap: 16px; align-items: stretch; font-size: 12px; overflow-wrap: anywhere; }
+.traceLine { width: 2px; flex: 0 0 2px; background: var(--v2-success-line); }
+.traceTitle { font-size: 12px; font-weight: 560; margin-bottom: 4px !important; }
+.trace p + span { display: block; margin-top: 4px; font-size: 11px; color: var(--va-muted); }
+.footer { display: flex; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; align-items: center; padding: 12px 24px; border-top: 1px solid var(--va-border); font-size: 11px; color: var(--va-muted); background: var(--v2-subtle); }
+.state { color: var(--va-amber); background: var(--v2-amber-soft); border: 1px solid var(--v2-amber-line); border-radius: var(--v2-badge-radius); padding: 4px 8px; font-size: 11px; font-weight: 500; display: inline-flex; align-items: center; min-height: 24px; }
+
+.state[data-ready="true"] { color: var(--va-green); background: var(--v2-success-soft); border-color: var(--v2-success-line); }
+.empty { padding: 36px 28px; }
+.empty h3 { font-size: 15px; font-weight: 550; }
+.empty p { color: var(--va-muted); font-size: 12px; margin-top: 8px; }
+@container allocation-matrix (max-width: 650px) {
+  .heading { padding: 20px; flex-wrap: wrap; gap: 12px; }
+  .heading h2 { font-size: 22px; }
+  .receipt { padding: 16px 20px; align-items: flex-start; }
+  .receiptAmount strong { font-size: 24px; }
+  .matrixLabel { padding: 16px 20px 8px; }
+  .matrixLabel > span:last-child { display: none; }
+  .mobilePicker { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 0 20px 16px; font-size: 11px; color: var(--va-muted); }
+  .mobilePicker select { min-height: 44px; max-width: 100%; border: 1px solid var(--va-border); border-radius: var(--v2-control-radius); background: var(--v2-surface); color: var(--va-text); font: inherit; padding: 8px 12px; }
+  .table .invoiceColumn[data-selected="false"], .table .totalColumn { display: none; }
+  .table .rowHeading { width: 50%; }
+  .table .rowHeading, .table tbody th, .table tfoot th { padding-left: 20px; }
+  .table th, .table td { padding-inline: 20px; }
+  .table thead button { min-height: 52px; }
+  .trace, .footer, .empty { padding-inline: 20px; }
+}
+@container allocation-matrix (max-width: 380px) {
+  .receipt { flex-direction: column; gap: 16px; }
+  .receiptAmount { text-align: left; }
+  .heading, .receipt, .trace, .footer, .empty { padding-inline: 16px; }
+  .mobilePicker, .matrixLabel { padding-inline: 16px; }
+  .table .rowHeading, .table tbody th, .table tfoot th { padding-left: 16px; }
+  .table th, .table td { padding-inline: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .table button:active { transform: none; } }
+
+/* Keep the native select interaction and expose the Figma chevron visually. */
+.selectControl { position: relative; display: inline-flex; align-items: center; min-width: 0; max-width: 100%; color: var(--va-muted); }
+.selectControl::after { content: ""; position: absolute; inset-inline-end: 10px; width: 14px; height: 14px; pointer-events: none; background-color: currentColor; -webkit-mask: /* Figma source: source-svg/chevron-down.svg */ url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M19%209L12%2016L5%209%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A") center / contain no-repeat; mask: /* Figma source: source-svg/chevron-down.svg */ url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M19%209L12%2016L5%209%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A") center / contain no-repeat; }
+.selectControl select { appearance: none; -webkit-appearance: none; max-width: 100%; padding-inline-end: 32px; color: var(--va-text); }
+@media (forced-colors: active) { .selectControl::after { forced-color-adjust: none; background-color: var(--v2-forced-ink); } }
+
+@media (hover: hover) and (pointer: fine) {
+  .table button:hover { color: var(--va-green); }
+}
+
+.matrix :where(button, input, select, summary):focus-visible { outline: 2px solid var(--v2-focus); outline-offset: 3px; transition-duration: 0ms; }
+
+.matrix :where(h2, h3) { text-wrap: balance; }

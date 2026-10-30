@@ -1,0 +1,43 @@
+{
+  "summary": {
+    "fails": 0,
+    "reflex": 0,
+    "warns": 0,
+    "waived": 0,
+    "rejected": 0,
+    "answered": 2,
+    "dismissed": 1,
+    "notes": 0,
+    "files": 20,
+    "render": "off"
+  },
+  "findings": [
+    {
+      "gate": "F7",
+      "grade": "ANSWERED",
+      "tier": "finish",
+      "file": "outputs\\verasett-premium-v2\\src\\components\\verasett-ui-assets\\assets.module.css",
+      "line": 106,
+      "evidence": "same container recipe on 11 selectors (.button, .mobilePicker select, .search, .search…...)",
+      "fix": "Vary weight, radius, or fill by role; not every box is the same box"
+    },
+    {
+      "gate": "F7",
+      "grade": "ANSWERED",
+      "tier": "finish",
+      "file": "outputs\\verasett-premium-v2\\src\\components\\verasett-ui-assets\\close-readiness-board.module.css",
+      "line": 3,
+      "evidence": "same container recipe on 11 selectors (.board, .worksheet, .card, .matrix...)",
+      "fix": "Vary weight, radius, or fill by role; not every box is the same box"
+    },
+    {
+      "gate": "25",
+      "grade": "DISMISSED",
+      "tier": "reflex",
+      "file": "outputs\\verasett-premium-v2\\src\\components\\verasett-ui-assets\\reconciliation-activity.module.css",
+      "line": 66,
+      "evidence": "measure 40ch on .empty p (45-75ch range)",
+      "fix": "Set prose measure between 45 and 75ch; a one-sentence lede or caption from 28ch"
+    }
+  ]
+}

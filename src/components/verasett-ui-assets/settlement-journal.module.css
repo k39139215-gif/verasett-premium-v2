@@ -1,0 +1,81 @@
+/* Hallmark · reference-led Verasett · redesign: restyle · scope: app · copy: verbatim */
+/* Critique: precise neutral hierarchy, legible metadata, restrained source-backed controls. */
+.journal { container: settlement-journal / inline-size; background: var(--va-surface); border: 1px solid var(--va-border); border-radius: var(--v2-radius); width: 100%; min-width: 0; box-shadow: var(--v2-shadow); overflow: clip; }
+.header { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px; }
+.overline { font-size: 11px; font-weight: 500; letter-spacing: 0; color: var(--va-blue); }
+.header h2 { font-size: 22px; font-weight: 560; min-width: 0; overflow-wrap: anywhere; line-height: 1.25; letter-spacing: -.025em; margin: 8px 0 4px; }
+.header p { font-size: 12px; color: var(--va-muted); }
+.total { display: grid; gap: 4px; text-align: right; min-width: 0; }
+.total span { color: var(--va-muted); font-size: 11px; }
+.total strong { font-size: 24px; font-weight: 500; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.dateBar { border-block: 1px solid var(--va-border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 12px 24px; background: var(--va-surface-raised); font-size: 11px; color: var(--va-muted); letter-spacing: 0; }
+.entries { padding: 0 24px; list-style: none; }
+.entry { display: grid; grid-template-columns: 72px minmax(0, 1fr); position: relative; }
+.timeRail { position: relative; padding-top: 28px; color: var(--va-muted); font-size: 11px; }
+.timeRail::after { content: ''; position: absolute; inset: 34px 12px -26px auto; width: 1px; background: var(--va-border); }
+.entry:last-child .timeRail::after { bottom: 32px; }
+.node { position: absolute; top: 31px; right: 9px; width: 7px; height: 7px; border: 1px solid var(--va-blue); border-radius: 50%; background: var(--va-surface); z-index: 1; }
+.entry[data-state="review"] .node { border-color: var(--va-amber); }
+.record { min-width: 0; padding: 24px 0 20px 16px; border-bottom: 1px solid var(--va-border); }
+.entry:last-child .record { border-bottom: 0; }
+.recordTop { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+.recordTop > div { min-width: 0; }
+.record h3 { font-size: 14px; font-weight: 550; letter-spacing: -.015em; overflow-wrap: anywhere; }
+.customer { font-size: 12px; color: var(--va-muted); margin-top: 4px !important; overflow-wrap: anywhere; }
+.amount { font-size: 18px; font-weight: 500; line-height: 1.25; letter-spacing: -.025em; text-align: right; overflow-wrap: anywhere; }
+.recordBottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 8px; }
+.recordBottom > div { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 12px; min-width: 0; }
+.state { display: inline-flex; align-items: center; min-height: 24px; padding: 4px 8px; border: 1px solid var(--v2-line); border-radius: var(--v2-badge-radius); background: var(--v2-subtle); font-size: 11px; font-weight: 500; color: var(--va-muted); }
+
+.state[data-state="proposal"] { color: var(--va-green); background: var(--v2-success-soft); border-color: var(--v2-success-line); }
+.state[data-state="review"] { color: var(--va-amber); background: var(--v2-amber-soft); border-color: var(--v2-amber-line); }
+.summary { font-size: 12px; color: var(--va-muted); overflow-wrap: anywhere; }
+.disclosure { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 8px 0 8px 8px; border: 0; background: var(--v2-transparent); color: var(--va-blue); cursor: pointer; font-size: 11px !important; flex-shrink: 0; }
+.disclosure svg { width: 14px; height: 14px; flex-shrink: 0; }
+.disclosure:active { background: var(--v2-accent-soft); }
+.disclosure:focus-visible { outline: 2px solid var(--va-blue); outline-offset: 3px; border-radius: 2px; }
+.evidence { border-top: 1px solid var(--va-border); margin-top: 8px; padding-top: 16px; }
+.evidence[hidden] { display: none; }
+.detail { font-size: 12px; line-height: 1.7; color: var(--va-muted); max-width: 72ch; overflow-wrap: anywhere; }
+.evidenceList { list-style: none; padding: 0; margin: 12px 0 0; }
+.evidenceList li { display: flex; justify-content: space-between; align-items: center; gap: 8px 20px; padding: 8px 0; border-bottom: 1px solid var(--va-border); }
+.evidenceList li:last-child { border-bottom: 0; }
+.evidenceList li > div { min-width: 0; display: grid; gap: 4px; }
+.evidenceList strong { font-weight: 500; font-size: 12px; overflow-wrap: anywhere; }
+.evidenceList div span { font-size: 11px; color: var(--va-muted); overflow-wrap: anywhere; }
+.evidenceState { font-size: 11px; color: var(--va-muted); text-align: right; min-width: 0; }
+.evidenceState[data-tone="success"] { color: var(--va-green); }
+.evidenceState[data-tone="review"] { color: var(--va-amber); }
+.evidenceFoot { margin-top: 12px !important; font-size: 11px; color: var(--va-muted); }
+.footer { border-top: 1px solid var(--va-border); padding: 12px 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; color: var(--va-muted); font-size: 11px; }
+.empty { padding: 40px 24px; text-align: center; font-size: 12px; color: var(--va-muted); }
+@container settlement-journal (max-width: 620px) {
+  .header { padding: 24px 20px; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+  .header h2 { font-size: 22px; }
+  .total { text-align: left; }
+  .total strong { font-size: 20px; }
+  .dateBar, .footer { padding-inline: 20px; }
+  .entries { padding-inline: 16px; }
+  .entry { grid-template-columns: 46px minmax(0, 1fr); }
+  .timeRail { font-size: 11px; }
+  .timeRail::after { right: 1px; }
+  .node { right: -2px; }
+  .record { padding-left: 16px; }
+  .recordTop { flex-direction: column; gap: 8px; }
+  .amount { text-align: left; font-size: 18px; }
+  .recordBottom { align-items: flex-start; gap: 4px; }
+  .recordBottom > div { display: grid; gap: 4px; }
+  .summary { font-size: 11px; }
+  .disclosure { padding-left: 4px; gap: 4px; font-size: 11px !important; }
+  .evidenceList li { align-items: flex-start; flex-direction: column; }
+  .evidenceState { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) { .disclosure:active { transform: none; } }
+
+@media (hover: hover) and (pointer: fine) {
+  .disclosure:hover { color: var(--va-text); }
+}
+
+.journal :where(button, input, select, summary):focus-visible { outline: 2px solid var(--v2-focus); outline-offset: 3px; transition-duration: 0ms; }
+
+.journal :where(h2, h3) { text-wrap: balance; }

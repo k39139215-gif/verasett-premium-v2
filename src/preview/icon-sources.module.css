@@ -1,0 +1,26 @@
+/* Hallmark · reference-led Verasett · redesign: restyle · scope: app · copy: verbatim */
+/* Critique: increase legibility, remove warm tinted chrome, and align controls to the transaction records. */
+.panel { border: 1px solid var(--v2-line); border-radius: 6px; background: var(--v2-surface); overflow: hidden; }
+.header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--v2-line); }
+.header > div { display: grid; gap: 4px; }
+.header strong { font-size: 13px; font-weight: 550; }
+.header span { font-size: 11px; color: var(--v2-muted); }
+.header .badge { border: 1px solid var(--v2-line); border-radius: 4px; padding: 4px 8px; color: var(--v2-success); background: var(--v2-success-soft); font-size: 11px; white-space: nowrap; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; margin: 0; list-style: none; }
+.item { display: flex; align-items: flex-start; gap: 12px; min-width: 0; padding: 20px 20px; border-bottom: 1px solid var(--v2-line); }
+.item:not(:nth-child(3n)) { border-right: 1px solid var(--v2-line); }
+.symbol { display: grid; place-items: center; width: 28px; height: 30px; flex: 0 0 28px; color: var(--v2-accent); }
+.details { display: grid; align-content: start; gap: 4px; min-width: 0; }
+.details > strong { font-size: 12px; line-height: 1.4; font-weight: 550; overflow-wrap: anywhere; }
+.source { display: inline-flex; align-items: center; gap: 4px; min-width: 0; font-size: 11px; color: var(--v2-accent) !important; overflow-wrap: anywhere; }
+.source svg { flex: 0 0 11px; }
+.family { font-size: 11px; color: var(--v2-muted); }
+.usage, .available { font-size: 11px; line-height: 1.5; color: var(--v2-muted) !important; margin-top: 4px; overflow-wrap: anywhere; }
+.footer { padding: 12px 20px; background: var(--v2-subtle); font-size: 11px; color: var(--v2-muted); line-height: 1.6; }
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .item:not(:nth-child(3n)) { border-right: 0; } .item:nth-child(odd) { border-right: 1px solid var(--v2-line); } }
+@media (max-width: 480px) { .grid { grid-template-columns: minmax(0, 1fr); } .item:nth-child(odd) { border-right: 0; } .item { padding: 16px; } .header { padding: 16px; gap: 8px; align-items: start; } .header .badge { display: none; } .source { min-height: 30px; } .usage { min-height: 30px; display: flex; align-items: center; } .footer { padding: 12px 16px; } }
+
+.sourceScope { font-size: 11px; line-height: 1.5; color: var(--v2-muted); }
+.compatibility { font-size: 11px; line-height: 1.5; color: var(--v2-amber); margin-top: 4px; }
+@media (hover: hover) and (pointer: fine) {
+.source:hover, .usage:hover { text-decoration: underline; text-underline-offset: 3px; } }

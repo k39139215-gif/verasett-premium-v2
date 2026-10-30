@@ -1,0 +1,355 @@
+{
+  "auditedAt": "2026-10-29T07:12:27.4305197Z",
+  "workspaceRoot": "C:\\Users\\kartik\\Documents\\Codex\\2026-10-10\\build-verasett-s-custom-fintech-ui",
+  "method": "Read-only SHA256 comparison of all 441 inventoried V1 delivery files; recursive read-only src comparison; manual inspection of every differing production TS/TSX source. No V1 build, test, server, or write commands executed.",
+  "baselineManifest": "C:\\Users\\kartik\\Documents\\Codex\\2026-10-10\\build-verasett-s-custom-fintech-ui\\work\\premium-v2-2026-10-28\\v1-baseline-sha256.json",
+  "baselineHashSummary": [
+    {
+      "edition": "verasett-ui-assets",
+      "checked": 211,
+      "unchanged": 211,
+      "changedOrMissing": 0
+    },
+    {
+      "edition": "verasett-ui-assets-boardui",
+      "checked": 230,
+      "unchanged": 230,
+      "changedOrMissing": 0
+    }
+  ],
+  "baselineUnchanged": true,
+  "baselineScope": "Manifest covers delivery/source/config/documentation/evidence files selected before redesign. It does not certify excluded generated dependencies, caches, or build outputs. Full src trees are additionally inventoried here.",
+  "baselineFailures": [],
+  "componentInventory": {
+    "original": [
+      "IncomingPaymentsTable",
+      "VerasettIncomingPayments",
+      "BankStatementCard",
+      "MatchingProgressCard",
+      "ERPExportCard",
+      "PaymentMatchCard",
+      "ExceptionReviewCard",
+      "DeductionDetailCard",
+      "MatchMetric",
+      "StatusPill",
+      "WorkflowConnector",
+      "ReconciliationHeroVisual",
+      "PaymentLedger",
+      "PaymentReviewQueue",
+      "PaymentAllocationView",
+      "ReconciliationRunScreen",
+      "ReconciliationIntakeScreen",
+      "PaymentMatchDetailScreen",
+      "ControllerApprovalScreen",
+      "DeductionBreakdownScreen",
+      "ExceptionReviewScreen",
+      "ERPExportPreviewScreen",
+      "ReconciliationAuditScreen",
+      "AllocationMatrix",
+      "ReconciliationProofSheet",
+      "RemittanceInbox",
+      "CloseReadinessBoard",
+      "SettlementJournal",
+      "ClearingWorksheet"
+    ],
+    "boardui": [
+      "IncomingPaymentsTable",
+      "VerasettIncomingPayments",
+      "BankStatementCard",
+      "MatchingProgressCard",
+      "ERPExportCard",
+      "PaymentMatchCard",
+      "ExceptionReviewCard",
+      "DeductionDetailCard",
+      "MatchMetric",
+      "StatusPill",
+      "WorkflowConnector",
+      "ReconciliationHeroVisual",
+      "PaymentLedger",
+      "PaymentReviewQueue",
+      "PaymentAllocationView",
+      "ReconciliationRunScreen",
+      "ReconciliationIntakeScreen",
+      "PaymentMatchDetailScreen",
+      "ControllerApprovalScreen",
+      "DeductionBreakdownScreen",
+      "ExceptionReviewScreen",
+      "ERPExportPreviewScreen",
+      "ReconciliationAuditScreen",
+      "AllocationMatrix",
+      "ReconciliationProofSheet",
+      "RemittanceInbox",
+      "CloseReadinessBoard",
+      "SettlementJournal",
+      "ClearingWorksheet",
+      "AssetSegmentedControl",
+      "SourceFileDropzone",
+      "ReconciliationActivity"
+    ],
+    "premium": [
+      "IncomingPaymentsTable",
+      "VerasettIncomingPayments",
+      "BankStatementCard",
+      "MatchingProgressCard",
+      "ERPExportCard",
+      "PaymentMatchCard",
+      "ExceptionReviewCard",
+      "DeductionDetailCard",
+      "MatchMetric",
+      "StatusPill",
+      "WorkflowConnector",
+      "ReconciliationHeroVisual",
+      "PaymentLedger",
+      "PaymentReviewQueue",
+      "PaymentAllocationView",
+      "ReconciliationRunScreen",
+      "ReconciliationIntakeScreen",
+      "PaymentMatchDetailScreen",
+      "ControllerApprovalScreen",
+      "DeductionBreakdownScreen",
+      "ExceptionReviewScreen",
+      "ERPExportPreviewScreen",
+      "ReconciliationAuditScreen",
+      "AllocationMatrix",
+      "ReconciliationProofSheet",
+      "RemittanceInbox",
+      "CloseReadinessBoard",
+      "SettlementJournal",
+      "ClearingWorksheet",
+      "AssetSegmentedControl",
+      "SourceFileDropzone",
+      "ReconciliationActivity"
+    ],
+    "originalNotInPremium": [],
+    "boarduiNotInPremium": [],
+    "boarduiAdditions": [
+      "AssetSegmentedControl",
+      "SourceFileDropzone",
+      "ReconciliationActivity"
+    ]
+  },
+  "galleryInventory": {
+    "compositions": [
+      "ReconciliationHeroVisual",
+      "PaymentLedger",
+      "PaymentReviewQueue",
+      "PaymentAllocationView"
+    ],
+    "assetCatalog": [
+      "IncomingPaymentsTable",
+      "BankStatementCard",
+      "MatchingProgressCard",
+      "ERPExportCard",
+      "PaymentMatchCard",
+      "ExceptionReviewCard",
+      "DeductionDetailCard",
+      "MatchMetric",
+      "StatusPill",
+      "WorkflowConnector"
+    ],
+    "productScreens": [
+      "VerasettIncomingPayments",
+      "ReconciliationRunScreen",
+      "PaymentMatchDetailScreen",
+      "DeductionBreakdownScreen",
+      "ExceptionReviewScreen",
+      "ControllerApprovalScreen",
+      "ERPExportPreviewScreen",
+      "ReconciliationAuditScreen",
+      "ReconciliationIntakeScreen"
+    ],
+    "additionalDesigns": [
+      "AllocationMatrix",
+      "ReconciliationProofSheet",
+      "RemittanceInbox",
+      "CloseReadinessBoard",
+      "SettlementJournal",
+      "ClearingWorksheet"
+    ],
+    "workflowTools": [
+      "SourceFileDropzone",
+      "ReconciliationActivity"
+    ],
+    "reusableControl": "AssetSegmentedControl",
+    "icons": "Inherited Figma-backed shared icon module and source sheet; byte-identical to BoardUI."
+  },
+  "originalToBoardui": {
+    "originalSourceFiles": 147,
+    "boarduiSourceFiles": 162,
+    "missingOriginalPaths": [],
+    "differingPaths": [
+      {
+        "path": "components/verasett-ui-assets/incoming.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/index.ts",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/product-data.ts",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/ReconciliationIntakeScreen.tsx",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/VerasettIncomingPayments.tsx",
+        "state": "different"
+      },
+      {
+        "path": "preview/icon-surfaces.test.tsx",
+        "state": "different"
+      },
+      {
+        "path": "preview/preview.module.css",
+        "state": "different"
+      },
+      {
+        "path": "preview/Preview.test.tsx",
+        "state": "different"
+      },
+      {
+        "path": "preview/Preview.tsx",
+        "state": "different"
+      },
+      {
+        "path": "preview/PreviewAsset.tsx",
+        "state": "different"
+      }
+    ],
+    "behavioralDifferences": [
+      "VerasettIncomingPayments retains original search, status filtering, selection, review callback, summary and fictional CSV export, and adds reversible reference/amount sorting, active-filter removal chips, density configuration and switch.",
+      "ReconciliationIntakeScreen retains source rows, validation notes and missing-AR simulation; BoardUI adds a local metadata selector and explicit optional available flag. Received-source counts and availability checks differ for missing custom inputs or simulated missing AR. This is inherited BoardUI behavior, not newly invented in Premium V2.",
+      "PreviewAsset keeps Desktop/Compact behavior using the BoardUI segmented control and extends its type to workflow utilities."
+    ],
+    "dataDifferences": "Only product-data.ts differs: optional IntakeInput.available property and available:true on existing demo input records. Default financial amounts, currency, source identifiers, statuses and control notes are unchanged. All other data modules are byte-identical.",
+    "recommendation": "BoardUI is a screen/export inventory superset and preserves all original normal/default workflows. Use it as the Premium V2 source. Exact original presentation and legacy intake edge-case behavior remain available in untouched original V1 for comparison; do not claim every original custom-input edge case is identical to BoardUI."
+  },
+  "boarduiToPremium": {
+    "premiumSourceFiles": 170,
+    "missingPaths": [],
+    "differingPaths": [
+      {
+        "path": "components/verasett-ui-assets/allocation-matrix.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/asset-segmented-control.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/assets.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/clearing-worksheet.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/close-readiness-board.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/incoming.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/product-screens.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/reconciliation-activity.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/reconciliation-proof-sheet.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/remittance-inbox.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/settlement-journal.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/shared.tsx",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/source-file-dropzone.module.css",
+        "state": "different"
+      },
+      {
+        "path": "components/verasett-ui-assets/variations.module.css",
+        "state": "different"
+      },
+      {
+        "path": "preview/design-gallery.module.css",
+        "state": "different"
+      },
+      {
+        "path": "preview/icon-sources.module.css",
+        "state": "different"
+      },
+      {
+        "path": "preview/preview.module.css",
+        "state": "different"
+      },
+      {
+        "path": "preview/Preview.tsx",
+        "state": "different"
+      },
+      {
+        "path": "preview/PreviewRouter.tsx",
+        "state": "different"
+      },
+      {
+        "path": "preview/screen-gallery.module.css",
+        "state": "different"
+      },
+      {
+        "path": "preview/shell.css",
+        "state": "different"
+      }
+    ],
+    "addedPaths": [
+      "components/verasett-dashboard/dashboard-data.test.ts",
+      "components/verasett-dashboard/dashboard-data.ts",
+      "components/verasett-dashboard/dashboard.module.css",
+      "components/verasett-dashboard/DashboardPopover.tsx",
+      "components/verasett-dashboard/index.ts",
+      "components/verasett-dashboard/VerasettDashboard.test.tsx",
+      "components/verasett-dashboard/VerasettDashboard.tsx",
+      "components/verasett-ui-assets/tokens.css"
+    ],
+    "productionCodeDifferences": [
+      {
+        "path": "components/verasett-ui-assets/shared.tsx",
+        "state": "different"
+      },
+      {
+        "path": "preview/Preview.tsx",
+        "state": "different"
+      },
+      {
+        "path": "preview/PreviewRouter.tsx",
+        "state": "different"
+      }
+    ],
+    "inspectedCodeMeaning": "shared.tsx only imports tokens.css. Preview.tsx only adds the theme class and changes preview title/intro/comparison links. All product screen implementations, data, props, event handlers and accounting formatting remain byte-identical to BoardUI.",
+    "financialModulesChecked": 16,
+    "financialModulesIdentical": 16,
+    "iconFilesChecked": 51,
+    "iconFilesIdentical": 51,
+    "testFilesChecked": 27,
+    "testFilesIdentical": 27
+  },
+  "limitations": [
+    "Static/hash audit does not establish rendered visual quality, every interaction state, or accessibility acceptance. Root agent performs browser QA separately.",
+    "Hash certification applies to manifest entries and separately inventoried src files; excluded generated dependency/cache/build trees are not claimed unchanged."
+  ]
+}

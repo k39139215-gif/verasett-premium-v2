@@ -1,0 +1,5 @@
+/* Hallmark · reference-led Verasett · redesign: restyle · scope: app · copy: verbatim */
+/* Critique: the preview frame is quiet; product records carry the visual hierarchy. */
+/* Preview-only rules. Never import this shell into the existing website. */
+html { color-scheme: light; scroll-behavior: auto; overflow-x: clip; }
+body { margin: 0; overflow-x: clip; }

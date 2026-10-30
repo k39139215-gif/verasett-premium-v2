@@ -1,0 +1,17 @@
+# Verasett cash application dashboard
+
+Open the standalone dashboard at http://127.0.0.1:5175/#dashboard. The V2 library header also contains a Full dashboard link. It is a new complete operational screen, with a deep green navigation rail, pale green selection, neutral canvas, cash overview, daily chart, review queue and payments table.
+
+The supplied first split-dropdown reference informed Export report. The supplied checkbox filter reference informed the Filters popup: grouped statuses and payment methods, counts, draft selection, Reset, Cancel and Apply filters. Notification references informed counted All/Unread activity and independent read state. Desktop dashboard references informed the persistent sidebar, compact toolbar, aligned summary strip, structured chart/detail panels and restrained financial status colors. Existing V2 Figma icons, Geist font and public status/segmented components are reused.
+
+Working interactions include date range and bank account dropdowns, payment search by customer/payment/invoice, status tabs, combined filters with removable chips, numeric/date sorting, checkbox selection with a mixed header state, selected totals, filtered/selected CSV download, activity All/Unread and Mark all read, and a native modal payment drawer. Popup Escape closes and returns focus; outside pointer presses dismiss. Arrow/Home/End keys traverse popup buttons. Sidebar links open the existing V2 intake, approval, export and audit screens. The mobile navigation collapses behind a toggle and the transaction table scrolls within its panel.
+
+Dashboard data are explicitly illustrative USD records as of October 29, 2026. The default week contains 10 payments: $73,660 received, $60,365 matched, $13,295 unresolved and 70% of payments matched. Period and account filters update these totals. Search and table filters narrow the table while the period/account overview stays intact. The chart always shows the seven days October 23–29 and discloses that interval even when the table uses a larger period. Its Match rate view is the percentage of daily cash matched; the summary rate is the percentage of payments matched.
+
+Westline's $4,320 payment remains Needs review with $4,570 candidate invoices and a -$250 difference. Viewing details or marking notifications read cannot approve payments or deductions. No backend or live accounts were added.
+
+Source: src/components/verasett-dashboard. The preview router adds only #dashboard; the existing library and deep links stay available. Source files in both V1 folders are untouched.
+
+Validation logs and browser screenshots are in evidence/dashboard. Dashboard data tests cover integer totals and date/filter boundaries; interaction tests cover filter drafts, search, account/date scope, numeric sorting/selection, notification status integrity, unresolved details and keyboard/outside dismissal. Browser verification covers CSV download and desktop/mobile layout.
+
+Final checks: 301 tests passed across 29 files; lint and TypeScript/Vite production build passed. The inherited invalid-duplicate export fixture emits its existing React duplicate-key warning during the test run. The actual dashboard browser had no console warnings or errors. All 441 inventoried V1 delivery files were verified unchanged. Requested 1280/390/320 viewport checks produced actual IAB document widths of 1277/379/308 respectively; none had page horizontal overflow. Table overflow is confined to its own scroll panel. Temporary browser sizing was reset after verification.

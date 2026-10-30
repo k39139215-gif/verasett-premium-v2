@@ -1,0 +1,55 @@
+/* Hallmark · reference-led Verasett · redesign: restyle · scope: app · copy: verbatim */
+/* Critique: replace warm tinted chrome and undersized metadata with a precise, neutral operational system. */
+.verasettPremiumTheme {
+  --v2-font: "Verasett Geist", ui-sans-serif, system-ui, sans-serif;
+  --v2-bg: #f5f6f7;
+  --v2-surface: #ffffff;
+  --v2-subtle: #fafbfc;
+  --v2-ink: #20262d;
+  --v2-muted: #68727d;
+  --v2-faint: #8b949e;
+  --v2-line: #e5e8ec;
+  --v2-line-strong: #cfd5db;
+  --v2-accent: #34665a;
+  --v2-accent-hover: #295548;
+  --v2-accent-soft: #eef5f1;
+  --v2-success: #2d7052;
+  --v2-success-soft: #edf6ef;
+  --v2-success-line: #d1e7d7;
+  --v2-amber: #8b641d;
+  --v2-amber-soft: #fff8ec;
+  --v2-amber-line: #ecdfc0;
+  --v2-blocked: #795750;
+  --v2-blocked-soft: #f8f1ee;
+  --v2-blocked-line: #e8d7d1;
+  --v2-transparent: transparent;
+  --v2-forced-ink: CanvasText;
+  --v2-focus: #34665a;
+  --v2-overlay: rgba(27, 38, 47, .35);
+  --v2-shadow: 0 1px 3px rgba(24, 39, 50, .05);
+  --v2-shadow-raised: 0 12px 36px rgba(24, 39, 50, .1);
+  --v2-radius: 8px;
+  --v2-control-radius: 6px;
+  --v2-badge-radius: 5px;
+  --v2-ease: cubic-bezier(.23, 1, .32, 1);
+  --v2-space-1: 4px;
+  --v2-space-2: 8px;
+  --v2-space-3: 12px;
+  --v2-space-4: 16px;
+  --v2-space-5: 20px;
+  --v2-space-6: 24px;
+  --v2-space-8: 32px;
+  --v2-space-12: 48px;
+  --va-font: var(--v2-font);
+  --va-text: var(--v2-ink);
+  --va-muted: var(--v2-muted);
+  --va-border: var(--v2-line);
+  --va-surface: var(--v2-surface);
+  --va-surface-raised: var(--v2-subtle);
+  --va-green: var(--v2-success);
+  --va-amber: var(--v2-amber);
+  --va-blue: var(--v2-accent);
+  --va-radius: var(--v2-radius);
+  --va-selected-surface: var(--v2-accent-soft);
+}
+

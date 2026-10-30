@@ -1,0 +1,84 @@
+/* Hallmark · reference-led Verasett · redesign: restyle · scope: app · copy: verbatim */
+/* Critique: precise neutral hierarchy, legible metadata, restrained source-backed controls. */
+.worksheet { container: clearing-worksheet / inline-size; width: 100%; min-width: 0; box-shadow: var(--v2-shadow); border: 1px solid var(--va-border); border-radius: var(--v2-radius); background: var(--va-surface); overflow: clip; }
+.header { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding: 24px; border-bottom: 1px solid var(--v2-line-strong); }
+.overline { font-size: 11px; font-weight: 500; letter-spacing: 0; color: var(--va-muted); }
+.header h2 { font-size: 22px; line-height: 1.3; font-weight: 560; min-width: 0; overflow-wrap: anywhere; letter-spacing: -.025em; margin: 8px 0; }
+.header p { color: var(--va-muted); font-size: 12px; }
+.header p span { padding-inline: 8px; }
+.documentMark { border: 1px solid var(--va-border); padding: 8px 12px; font-size: 11px; letter-spacing: 0; color: var(--va-muted); border-radius: 2px; }
+.documentInfo { padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.documentInfo dl { display: flex; gap: 48px; min-width: 0; }
+.documentInfo dl > div { min-width: 0; }
+.documentInfo dt { color: var(--va-muted); font-size: 11px; margin-bottom: 4px; }
+.documentInfo dd { font-size: 12px; font-weight: 500; overflow-wrap: anywhere; }
+.documentInfo dd span { display: block; margin-top: 4px; color: var(--va-muted); font-size: 11px; font-weight: 400; }
+.referenceToggle { display: flex; align-items: center; gap: 8px; min-height: 44px; font-size: 11px; color: var(--va-muted); cursor: pointer; }
+.referenceToggle input { margin: 0; accent-color: var(--va-blue); width: 14px; height: 14px; flex-shrink: 0; }
+.referenceToggle input:focus-visible { outline: 2px solid var(--va-blue); outline-offset: 4px; }
+.tableWrap { min-width: 0; }
+.table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums lining-nums; }
+.descriptionColumn { width: 40%; }
+.table :is(th,td) { padding: 8px 16px; height: 52px; border-bottom: 1px solid var(--va-border); text-align: right; vertical-align: middle; }
+.table :is(th,td):first-child { padding-left: 24px; text-align: left; }
+.table :is(th,td):last-child { padding-right: 24px; }
+.table thead th { height: 48px; color: var(--v2-muted); background: var(--va-surface-raised); border-top: 1px solid var(--va-border); font-weight: 500; font-size: 11px; }
+.table thead th span { display: block; font-size: 11px; font-weight: 400; color: var(--va-muted); margin-top: 4px; }
+.table td { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.table tbody th { font-weight: 400; }
+.lineTitle { display: flex; gap: 12px; min-width: 0; }
+.lineTitle > div { min-width: 0; }
+.lineNumber { font-size: 11px; padding-top: 4px; min-width: 15px; color: var(--va-muted); }
+.lineTitle strong { font-size: 13px; font-weight: 500; }
+.primaryReference { display: block; font-size: 11px; color: var(--va-muted); margin-top: 4px; overflow-wrap: anywhere; }
+.lineEvidence { display: block; font-size: 11px; color: var(--va-blue); margin-top: 8px; overflow-wrap: anywhere; }
+.table tfoot { background: var(--va-surface-raised); }
+.table tfoot :is(th,td) { border-top: 1px solid var(--v2-line-strong); border-bottom: 0; padding-block: 12px; font-weight: 550; }
+.reconciliation { padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid var(--va-border); }
+.reconciliation > div { display: grid; gap: 4px; }
+.reconciliation strong { font-size: 24px; font-weight: 500; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.reconciliation p { font-size: 11px; color: var(--va-muted); }
+.check { min-height: 24px; padding: 4px 8px; border: 1px solid var(--v2-amber-line); border-radius: var(--v2-badge-radius); background: var(--v2-amber-soft); font-size: 11px; color: var(--va-amber); }
+.check[data-balanced="true"] { color: var(--va-green); background: var(--v2-success-soft); border-color: var(--v2-success-line); }
+.approvalStrip { display: flex; align-items: center; gap: 24px; padding: 20px 24px; border-top: 1px solid var(--va-border); background: var(--va-surface-raised); }
+.stamp { border: 1px solid var(--v2-amber-line); padding: 8px 12px; border-radius: var(--v2-control-radius); background: var(--v2-amber-soft); color: var(--va-amber); display: grid; gap: 4px; flex-shrink: 0; }
+.stamp span { font-size: 11px; letter-spacing: 0; }
+.stamp strong { font-size: 12px; font-weight: 500; }
+.approvalStrip p { font-size: 11px; font-weight: 500; }
+.approvalStrip > div > span { font-size: 11px; color: var(--va-muted); }
+.notPosted { font-size: 11px; margin-left: auto; color: var(--va-muted); }
+.empty { padding: 24px; text-align: center; color: var(--va-muted); font-size: 12px; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@container clearing-worksheet (max-width: 700px) {
+  .header, .documentInfo, .reconciliation, .approvalStrip { padding-inline: 20px; }
+  .header { padding-top: 24px; padding-bottom: 20px; }
+  .header h2 { font-size: 22px; }
+  .documentInfo { flex-wrap: wrap; gap: 8px; }
+  .documentInfo dl { gap: 20px; flex-wrap: wrap; }
+  .table :is(th,td) { padding-inline: 12px; }
+  .table :is(th,td):first-child { padding-left: 20px; }
+  .table :is(th,td):last-child { padding-right: 20px; }
+  .approvalStrip { flex-wrap: wrap; gap: 16px; }
+  .notPosted { margin-left: 0; }
+  .reconciliation { flex-wrap: wrap; gap: 8px 16px; }
+}
+@container clearing-worksheet (max-width: 540px) {
+  .header { flex-wrap: wrap; gap: 12px; }
+  .table colgroup { display: none; }
+  .table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .table, .table tbody, .table tfoot { display: block; }
+  .table tbody tr { display: grid; grid-template-columns: minmax(0, 1fr); padding: 12px 20px; border-top: 1px solid var(--va-border); }
+  .table tbody :is(th,td), .table tfoot :is(th,td) { padding: 4px 0 !important; height: auto; border: 0; }
+  .table tbody th { margin-bottom: 4px; }
+  .table td { display: flex; justify-content: space-between; gap: 12px; white-space: normal; overflow-wrap: anywhere; font-size: 12px; }
+  .table td::before { content: attr(data-label); font-size: 11px; color: var(--va-muted); font-weight: 400; text-align: left; }
+  .table tbody tr[data-side="receipt"] td:nth-child(n+3), .table tbody tr[data-side="adjustment"] td:nth-child(2), .table tbody tr[data-side="adjustment"] td:nth-child(4), .table tbody tr[data-side="receivable"] td:nth-child(2), .table tbody tr[data-side="receivable"] td:nth-child(3) { display: none; }
+  .table tfoot tr { display: block; padding: 16px 20px; border-top: 1px solid var(--v2-line-strong); }
+  .table tfoot th { display: block; margin-bottom: 8px; font-size: 11px; }
+  .reconciliation p { flex-basis: 100%; order: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .referenceToggle input { transition: none; } }
+
+.worksheet :where(button, input, select, summary):focus-visible { outline: 2px solid var(--v2-focus); outline-offset: 3px; transition-duration: 0ms; }
+
+.worksheet :where(h2, h3) { text-wrap: balance; }

@@ -1,0 +1,46 @@
+{
+  "viewportChecks": [
+    {
+      "requested": {
+        "width": 1280,
+        "height": 800
+      },
+      "client": 1277,
+      "dashboard": 1278,
+      "scroll": 1277,
+      "width": 1293
+    },
+    {
+      "requested": {
+        "width": 390,
+        "height": 900
+      },
+      "client": 379,
+      "dashboard": 379,
+      "scroll": 379,
+      "width": 394
+    },
+    {
+      "requested": {
+        "width": 320,
+        "height": 900
+      },
+      "client": 308,
+      "dashboard": 308,
+      "scroll": 308,
+      "width": 323
+    }
+  ],
+  "checks": [
+    "combined status filter shows only Westline/Cedar",
+    "Westline drawer invoice total4570 received4320 difference-250",
+    "month/account scope updates overview",
+    "search narrows rows",
+    "notifications mark read",
+    "CSV10records downloaded and verified",
+    "Approvals opens existing gallery9screens6designs",
+    "full dashboard link returns",
+    "desktop1280 mobile390 mobile320 no horizontal page overflow"
+  ],
+  "consoleWarningsOrErrors": []
+}

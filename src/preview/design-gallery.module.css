@@ -1,0 +1,15 @@
+/* Hallmark · reference-led Verasett · redesign: restyle · scope: app · copy: verbatim */
+/* Critique: increase legibility, remove warm tinted chrome, and align controls to the transaction records. */
+.backlinks { display: flex; gap: 20px; font-size: 12px; color: var(--v2-muted); }
+.backlinks a { min-height: 44px; display: flex; align-items: center; }
+.navigation { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding-bottom: 24px; border-bottom: 1px solid var(--v2-line); }
+.navigation a { display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid var(--v2-line); border-radius: var(--v2-control-radius); background: var(--v2-surface); min-width: 0; }
+.navigation a[aria-current] { border-color: var(--v2-line-strong); background: var(--v2-accent-soft); }
+.number { font-size: 11px; color: var(--v2-muted); align-self: flex-start; padding-top: 4px; }
+.label { font-size: 13px; font-weight: 500; flex: 1; min-width: 0; }
+.label > span { display: block; color: var(--v2-muted); font-size: 11px; font-weight: 400; margin-top: 4px; }
+.diagram { width: 24px; height: 24px; flex-shrink: 0; color: var(--v2-accent); }
+@media (max-width: 900px) { .navigation { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .navigation a { padding: 12px 12px; gap: 8px; } .diagram { display: none; } .label { font-size: 12px; } .backlinks { gap: 16px; font-size: 11px; } }
+@media (hover: hover) and (pointer: fine) {
+.navigation a:hover { border-color: var(--v2-line-strong); } }

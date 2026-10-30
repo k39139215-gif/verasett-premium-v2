@@ -1,0 +1,240 @@
+/* Hallmark · reference-led Verasett · redesign: restyle · scope: app · copy: verbatim */
+/* Critique: increase legibility, remove warm tinted chrome, and align controls to the transaction records. */
+@import "./fonts.css";
+
+/* Declared component theme; host inline --va-* overrides remain supported. */
+
+.asset {
+  composes: verasettPremiumTheme from global;
+  color: var(--va-text);
+  font-family: var(--v2-font);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums lining-nums;
+  -webkit-font-smoothing: antialiased;
+  text-align: left;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.asset *, .asset *::before, .asset *::after { box-sizing: border-box; }
+.asset :where(h2, h3, p, dl, dd, ol) { margin: 0; }
+.asset :where(h2, h3, h4) { text-wrap: balance; }
+.asset :where(button) { font: inherit; }
+.card {
+  background: var(--va-surface);
+  border: 1px solid var(--va-border);
+  border-radius: var(--v2-radius);
+  min-width: 0;
+  box-shadow: var(--v2-shadow);
+}
+.padded { padding: 20px; }
+.title { font-size: 14px; font-weight: 600; letter-spacing: -.015em; line-height: 1.5; }
+.subtitle { color: var(--va-muted); font-size: 12px; line-height: 1.5; }
+.muted { color: var(--va-muted); }
+.row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.between { justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.stack { display: grid; gap: 4px; min-width: 0; }
+.icon { width: 16px; height: 16px; flex: 0 0 auto; }
+.iconBox {
+  width: 32px; height: 36px; display: grid; place-items: center; flex-shrink: 0;
+  border: 1px solid var(--va-border); border-radius: 6px;
+  color: var(--va-muted); background: var(--va-surface-raised);
+}
+.green { color: var(--va-green); }
+.amber { color: var(--va-amber); }
+.blue { color: var(--va-blue); }
+.pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  min-height: 24px; padding: 4px 8px; border: 1px solid; border-radius: var(--v2-badge-radius);
+  font-size: 11px; font-weight: 500; line-height: 18px; white-space: nowrap;
+  flex-shrink: 0; letter-spacing: 0;
+}
+.pill .icon { width: 11px; height: 11px; flex-basis: 11px; }
+.pill[data-tone="green"] { color: var(--va-green); background: var(--v2-success-soft); border-color: var(--v2-success-line); }
+.pill[data-tone="amber"] { color: var(--va-amber); background: var(--v2-amber-soft); border-color: var(--v2-amber-line); }
+.pill[data-tone="blue"] { color: var(--va-blue); background: var(--v2-accent-soft); border-color: var(--v2-line); }
+.pill[data-tone="neutral"] { color: var(--v2-muted); background: var(--v2-subtle); border-color: var(--v2-line); }
+.pill[data-tone="blocked"] { color: var(--v2-blocked); background: var(--v2-blocked-soft); border-color: var(--v2-blocked-line); }
+.workflowCard { padding: 16px; min-height: 96px; display: grid; align-content: center; gap: 12px; }
+.workflowCard .title { font-size: 13px; }
+.workflowCard .subtitle { font-size: 12px; }
+.workflowText { min-width: 0; flex: 1; }
+.workflowSecondary { display: flex; align-items: center; gap: 8px; margin-top: 4px; font-size: 11px; }
+.smallDot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex: 0 0 5px; display: none; }
+.progressRow { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 11px; }
+.progress { appearance: none; width: 100%; height: 3px; display: block; border: 0; border-radius: 4px; background: var(--v2-line); overflow: hidden; }
+.progress::-webkit-progress-bar { background: var(--v2-line); border-radius: 4px; }
+.progress::-webkit-progress-value { background: var(--va-blue); border-radius: 4px; }
+.progress::-moz-progress-bar { background: var(--va-blue); border-radius: 4px; }
+.tableCard { container: va-table / inline-size; overflow: hidden; }
+.tableHeader { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 24px; }
+.summary { text-align: right; flex-shrink: 0; }
+.summaryValue { display: flex; align-items: center; justify-content: end; gap: 8px; color: var(--va-green); font-size: 11px; }
+.summaryNote { color: var(--va-muted); font-size: 11px; }
+.table { border-collapse: collapse; border-spacing: 0; width: 100%; table-layout: fixed; background: var(--v2-surface); }
+.table th { height: 40px; color: var(--va-muted); font-weight: 450; font-size: 12px; text-align: left; background: var(--v2-subtle); }
+.table th, .table td { padding: 0 16px; border-bottom: 1px solid var(--va-border); }
+.table th:first-child, .table td:first-child { padding-left: 20px; }
+.table th:last-child, .table td:last-child { padding-right: 20px; }
+.table td { height: 52px; font-size: 13px; }
+.table tbody tr:last-child td { border-bottom: 0; }
+.table th:nth-child(1) { width: 25%; }
+.table th:nth-child(2) { width: 23%; }
+.table th:nth-child(3) { width: 32%; }
+.table th:nth-child(4) { width: 20%; }
+.table .amount { text-align: right; white-space: nowrap; font-weight: 500; }
+.truncate { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mobileCustomer { display: none; }
+.referenceButton { display: block; width: 100%; min-height: 44px; padding: 0; background: none; border: 0; cursor: pointer; color: inherit; text-align: left; }
+.referenceButton:focus-visible, .button:focus-visible { outline: 2px solid var(--va-blue); outline-offset: 3px; border-radius: 4px; }
+.empty { padding: 24px !important; text-align: center; color: var(--va-muted); }
+.tableFoot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 20px; font-size: 11px; color: var(--va-muted); border-top: 1px solid var(--va-border); }
+.demoNote { display: flex; align-items: center; gap: 4px; color: var(--va-muted); font-size: 11px; }
+.demoNote .icon { width: 11px; height: 11px; flex-basis: 11px; }
+.detailHead { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.reference { font-size: 12px; font-weight: 500; overflow-wrap: anywhere; }
+.money { font-size: 26px; line-height: 1.25; font-weight: 550; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.invoiceList { padding: 0; margin-top: 16px !important; }
+.invoice { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; padding: 12px 0; border-bottom: 1px solid var(--va-border); }
+.invoice dt { display: flex; align-items: center; gap: 8px; min-width: 0; overflow-wrap: anywhere; color: var(--va-muted); }
+.invoice dd { white-space: nowrap; }
+.explanation { font-size: 12px; color: var(--va-green); margin-top: 12px !important; line-height: 1.6; }
+.detailFoot { margin-top: 12px; }
+.exception { border-color: var(--v2-amber-line); }
+.reason { color: var(--va-muted); font-size: 13px; max-width: none; margin: 8px 0 16px !important; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; padding: 0 16px; background: var(--va-surface-raised); color: var(--va-text); border: 1px solid var(--va-border); border-radius: var(--v2-control-radius); font-size: 12px; cursor: pointer; transition: transform 180ms var(--v2-ease), background 140ms var(--v2-ease); }
+.button:active:not(:disabled) { transform: scale(.97); transition-duration: 60ms; }
+.button:disabled { cursor: not-allowed; color: var(--va-muted); }
+.deductionRows { display: grid; gap: 12px; margin-top: 16px !important; font-size: 12px; }
+.deductionRows > div { display: flex; flex-wrap: wrap; gap: 4px 12px; justify-content: space-between; align-items: center; }
+.deductionRows dt { color: var(--va-muted); }
+.deductionRows dd { overflow-wrap: anywhere; }
+.resolution { padding-top: 12px; border-top: 1px solid var(--va-border); }
+.metric { display: grid; gap: 8px; }
+.metricValue { font-size: 28px; font-weight: 550; letter-spacing: -.035em; line-height: 1.15; overflow-wrap: anywhere; }
+.metricLabel { color: var(--va-text); font-size: 12px; }
+.connector { position: relative; display: flex; align-items: center; justify-content: flex-end; color: var(--v2-faint); min-width: 16px; min-height: 16px; }
+.connectorLine { position: absolute; height: 1px; background: currentColor; left: 2px; right: 8px; top: calc(50% - .5px); }
+.connector svg { position: relative; width: 16px; height: 16px; flex: 0 0 16px; }
+.connectorNode { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: currentColor; left: 1px; top: calc(50% - 1.5px); }
+.connector[data-direction="vertical"] { min-height: 24px; width: 16px; flex-direction: column; }
+.connector[data-direction="vertical"] .connectorLine { width: 1px; height: auto; left: calc(50% - .5px); right: auto; top: 2px; bottom: 8px; }
+.connector[data-direction="vertical"] svg { transform: rotate(90deg); }
+.connector[data-direction="vertical"] .connectorNode { left: calc(50% - 1.5px); top: 1px; }
+.hero { container: va-hero / inline-size; width: 100%; max-width: 960px; }
+.heroChrome { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 11px; color: var(--va-muted); }
+.heroChromeLabel { display: flex; align-items: center; gap: 8px; }
+.heroChromeLabel strong { color: var(--va-text); font-weight: 500; }
+.workflow { display: flex; list-style: none; padding: 0; margin: 0 0 16px !important; align-items: stretch; }
+.workflow > li { flex: 1; min-width: 0; display: flex; align-items: center; }
+.workflow > li > .workflowCard { flex: 1; width: 100%; height: 100%; }
+.workflow > li > .connector { flex: 0 0 24px; }
+.integratedWorkflow { margin: -1px 0 0 !important; padding: 0 8px; border: 1px solid var(--va-border); background: var(--v2-subtle); border-radius: 0 0 var(--va-radius,8px) var(--va-radius,8px); }
+.integratedWorkflow > li > .workflowCard { border: 0; box-shadow: var(--v2-shadow); background: var(--v2-transparent); min-height: 92px; }
+.integratedWorkflow .iconBox { width: 26px; height: 30px; border: 0; background: var(--v2-transparent); }
+.integratedWorkflow .title { font-size: 12px; }
+.integratedWorkflow .workflowSecondary { font-size: 11px; }
+.heroDetails { display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px; margin-top: 16px; align-items: stretch; }
+.heroDetails > .card { padding: 16px; }
+.heroDetails .money { font-size: 22px; }
+.heroFooter { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; margin-top: 16px; font-size: 11px; color: var(--va-muted); }
+.hero[data-motion="true"] .workflow > li { animation: appear 420ms var(--v2-ease) both; }
+.hero[data-motion="true"] .workflow > li:nth-child(2) { animation-delay: 70ms; }
+.hero[data-motion="true"] .workflow > li:nth-child(3) { animation-delay: 140ms; }
+@keyframes appear { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@container va-table (max-width: 560px) {
+  .tableHeader { padding: 16px; flex-wrap: wrap; }
+  .table th, .table td { padding: 0 8px; }
+  .table th:first-child, .table td:first-child { padding-left: 12px; }
+  .table th:last-child, .table td:last-child { padding-right: 12px; }
+  .table th:nth-child(1) { width: 37%; }
+  .table th:nth-child(2) { width: 34%; }
+  .table th:nth-child(4) { width: 29%; }
+  .table td { font-size: 11px; height: 56px; }
+  .table .customerColumn { display: none; }
+  .mobileCustomer { display: block; font-size: 11px; color: var(--va-muted); margin-top: 4px; }
+  .tableFoot { padding-inline: 12px; }
+  .table .pill { gap: 4px; padding-inline: 4px; font-size: 11px; }
+  .summary { text-align: left; }
+  .summaryValue { justify-content: start; }
+}
+@container va-hero (max-width: 560px) {
+  .workflow { flex-direction: column; gap: 0; }
+  .workflow > li { flex-direction: column; width: 100%; }
+  .workflow > li > .connector { height: 24px; flex-basis: 24px; width: 16px; flex-direction: column; }
+  .workflow > li > .connector .connectorLine { width: 1px; height: auto; left: calc(50% - .5px); right: auto; top: 2px; bottom: 8px; }
+  .workflow > li > .connector svg { transform: rotate(90deg); }
+  .workflow > li > .connector .connectorNode { left: calc(50% - 1.5px); top: 1px; }
+  .workflowCard { min-height: auto; padding: 12px 16px; }
+  .heroDetails { grid-template-columns: minmax(0, 1fr); }
+  .heroChrome { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .asset *, .asset *::before, .asset *::after { animation: none !important; transition: none !important; }
+  .button:active:not(:disabled) { transform: none; }
+}
+
+/* Native inputs keep their keyboard/checked/indeterminate semantics; the visible
+   indicator is masked from the supplied Figma SVG exports. */
+.asset input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  flex: 0 0 16px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: var(--v2-transparent);
+  color: var(--va-muted);
+  cursor: pointer;
+  vertical-align: middle;
+}
+.asset input[type="checkbox"]::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  -webkit-mask: /* Figma source: source-svg/square.svg */ url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M4%207.2002V16.8002C4%2017.9203%204%2018.4801%204.21799%2018.9079C4.40973%2019.2842%204.71547%2019.5905%205.0918%2019.7822C5.5192%2020%206.07899%2020%207.19691%2020H16.8031C17.921%2020%2018.48%2020%2018.9074%2019.7822C19.2837%2019.5905%2019.5905%2019.2842%2019.7822%2018.9079C20%2018.4805%2020%2017.9215%2020%2016.8036V7.19691C20%206.07899%2020%205.5192%2019.7822%205.0918C19.5905%204.71547%2019.2837%204.40973%2018.9074%204.21799C18.4796%204%2017.9203%204%2016.8002%204H7.2002C6.08009%204%205.51962%204%205.0918%204.21799C4.71547%204.40973%204.40973%204.71547%204.21799%205.0918C4%205.51962%204%206.08009%204%207.2002Z%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A") center / contain no-repeat;
+  mask: /* Figma source: source-svg/square.svg */ url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M4%207.2002V16.8002C4%2017.9203%204%2018.4801%204.21799%2018.9079C4.40973%2019.2842%204.71547%2019.5905%205.0918%2019.7822C5.5192%2020%206.07899%2020%207.19691%2020H16.8031C17.921%2020%2018.48%2020%2018.9074%2019.7822C19.2837%2019.5905%2019.5905%2019.2842%2019.7822%2018.9079C20%2018.4805%2020%2017.9215%2020%2016.8036V7.19691C20%206.07899%2020%205.5192%2019.7822%205.0918C19.5905%204.71547%2019.2837%204.40973%2018.9074%204.21799C18.4796%204%2017.9203%204%2016.8002%204H7.2002C6.08009%204%205.51962%204%205.0918%204.21799C4.71547%204.40973%204.40973%204.71547%204.21799%205.0918C4%205.51962%204%206.08009%204%207.2002Z%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A") center / contain no-repeat;
+}
+.asset input[type="checkbox"]:checked,
+.asset input[type="checkbox"]:indeterminate { color: var(--va-blue); }
+.asset input[type="checkbox"]:checked::before {
+  -webkit-mask-image: /* Figma source: source-svg/check-square.svg */ url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M8%2012L11%2015L16%209M4%2016.8002V7.2002C4%206.08009%204%205.51962%204.21799%205.0918C4.40973%204.71547%204.71547%204.40973%205.0918%204.21799C5.51962%204%206.08009%204%207.2002%204H16.8002C17.9203%204%2018.4796%204%2018.9074%204.21799C19.2837%204.40973%2019.5905%204.71547%2019.7822%205.0918C20%205.5192%2020%206.07899%2020%207.19691V16.8036C20%2017.9215%2020%2018.4805%2019.7822%2018.9079C19.5905%2019.2842%2019.2837%2019.5905%2018.9074%2019.7822C18.48%2020%2017.921%2020%2016.8031%2020H7.19691C6.07899%2020%205.5192%2020%205.0918%2019.7822C4.71547%2019.5905%204.40973%2019.2842%204.21799%2018.9079C4%2018.4801%204%2017.9203%204%2016.8002Z%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A");
+  mask-image: /* Figma source: source-svg/check-square.svg */ url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M8%2012L11%2015L16%209M4%2016.8002V7.2002C4%206.08009%204%205.51962%204.21799%205.0918C4.40973%204.71547%204.71547%204.40973%205.0918%204.21799C5.51962%204%206.08009%204%207.2002%204H16.8002C17.9203%204%2018.4796%204%2018.9074%204.21799C19.2837%204.40973%2019.5905%204.71547%2019.7822%205.0918C20%205.5192%2020%206.07899%2020%207.19691V16.8036C20%2017.9215%2020%2018.4805%2019.7822%2018.9079C19.5905%2019.2842%2019.2837%2019.5905%2018.9074%2019.7822C18.48%2020%2017.921%2020%2016.8031%2020H7.19691C6.07899%2020%205.5192%2020%205.0918%2019.7822C4.71547%2019.5905%204.40973%2019.2842%204.21799%2018.9079C4%2018.4801%204%2017.9203%204%2016.8002Z%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A");
+}
+.asset input[type="checkbox"]:indeterminate::before {
+  -webkit-mask-image: /* Figma source: source-svg/minus-square.svg */ url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M8%2012H16M4%2016.8002V7.2002C4%206.08009%204%205.51962%204.21799%205.0918C4.40973%204.71547%204.71547%204.40973%205.0918%204.21799C5.51962%204%206.08009%204%207.2002%204H16.8002C17.9203%204%2018.4801%204%2018.9079%204.21799C19.2842%204.40973%2019.5905%204.71547%2019.7822%205.0918C20.0002%205.51962%2020.0002%206.07967%2020.0002%207.19978V16.7998C20.0002%2017.9199%2020.0002%2018.48%2019.7822%2018.9078C19.5905%2019.2841%2019.2842%2019.5905%2018.9079%2019.7822C18.4805%2020%2017.9215%2020%2016.8036%2020H7.19691C6.07899%2020%205.5192%2020%205.0918%2019.7822C4.71547%2019.5905%204.40973%2019.2842%204.21799%2018.9079C4%2018.4801%204%2017.9203%204%2016.8002Z%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A");
+  mask-image: /* Figma source: source-svg/minus-square.svg */ url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M8%2012H16M4%2016.8002V7.2002C4%206.08009%204%205.51962%204.21799%205.0918C4.40973%204.71547%204.71547%204.40973%205.0918%204.21799C5.51962%204%206.08009%204%207.2002%204H16.8002C17.9203%204%2018.4801%204%2018.9079%204.21799C19.2842%204.40973%2019.5905%204.71547%2019.7822%205.0918C20.0002%205.51962%2020.0002%206.07967%2020.0002%207.19978V16.7998C20.0002%2017.9199%2020.0002%2018.48%2019.7822%2018.9078C19.5905%2019.2841%2019.2842%2019.5905%2018.9079%2019.7822C18.4805%2020%2017.9215%2020%2016.8036%2020H7.19691C6.07899%2020%205.5192%2020%205.0918%2019.7822C4.71547%2019.5905%204.40973%2019.2842%204.21799%2018.9079C4%2018.4801%204%2017.9203%204%2016.8002Z%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A");
+}
+.asset input[type="checkbox"]:disabled { opacity: .45; cursor: not-allowed; }
+.asset input[type="checkbox"]:focus-visible { outline: 2px solid var(--va-blue); outline-offset: 3px; }
+@media (forced-colors: active) {
+  .asset input[type="checkbox"] { color: var(--v2-forced-ink); }
+  .asset input[type="checkbox"]:checked,
+  .asset input[type="checkbox"]:indeterminate { color: Highlight; }
+  .asset input[type="checkbox"]::before { forced-color-adjust: none; }
+}
+/* Suppress platform search glyphs; search and clear actions use Figma icons. */
+.asset input[type="search"]::-webkit-search-decoration,
+.asset input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+
+/* The disclosure retains native details/summary semantics with the source Figma caret. */
+.asset summary { display: inline-flex; align-items: center; gap: 8px; list-style: none; }
+.asset summary::marker { content: ""; }
+.asset summary::-webkit-details-marker { display: none; }
+.asset summary::before { content: ""; width: 14px; height: 14px; flex: 0 0 14px; background-color: currentColor; -webkit-mask: /* Figma source: source-svg/chevron-down.svg */ url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M19%209L12%2016L5%209%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A") center / contain no-repeat; mask: /* Figma source: source-svg/chevron-down.svg */ url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M19%209L12%2016L5%209%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A") center / contain no-repeat; transform: rotate(-90deg); }
+.asset details[open] > summary::before { transform: rotate(0deg); }
+@media (forced-colors: active) { .asset summary::before { forced-color-adjust: none; background-color: var(--v2-forced-ink); } }
+@media (hover: hover) and (pointer: fine){
+.referenceButton:hover { color: var(--va-blue); }
+.button:hover:not(:disabled) { background: var(--v2-accent-soft); }
+}

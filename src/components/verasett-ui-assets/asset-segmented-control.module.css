@@ -1,0 +1,12 @@
+/* Hallmark · reference-led Verasett · redesign: restyle · scope: app · copy: verbatim */
+/* Critique: increase legibility, remove warm tinted chrome, and align controls to the transaction records. */
+.group { display: inline-flex; align-items: stretch; gap: 4px; padding: 4px; border: 1px solid var(--va-border); border-radius: 6px; background: var(--va-surface-raised); max-width: 100%; }
+.group button { display: inline-flex; align-items: center; justify-content: center; min-width: 0; min-height: 32px; padding: 4px 12px; border: 1px solid var(--v2-transparent); border-radius: 4px; font: inherit; font-size: 11px; font-weight: 500; line-height: 1.4; color: var(--va-muted); background: var(--v2-transparent); cursor: pointer; overflow-wrap: anywhere; transition: transform 120ms var(--v2-ease); }
+.group button[aria-pressed="true"] { color: var(--va-text); border-color: var(--va-border); background: var(--va-surface); box-shadow: var(--v2-shadow); }
+.group button:active:not(:disabled) { transform: translateY(1px); transition-duration: 0ms; }
+.group button:focus-visible { outline: 2px solid var(--va-blue); outline-offset: 2px; }
+.group button:disabled { cursor: not-allowed; color: var(--v2-muted); background: var(--v2-subtle); border-color: var(--v2-line); }
+@media (pointer: coarse), (max-width: 600px) { .group button { min-height: 44px; } }
+@media (prefers-reduced-motion: reduce) { .group button { transition: none; } .group button:active:not(:disabled) { transform: none; } }
+@media (hover: hover) and (pointer: fine) {
+.group button:hover:not(:disabled) { color: var(--va-text); background: var(--va-surface); } }

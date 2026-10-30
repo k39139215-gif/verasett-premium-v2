@@ -1,0 +1,48 @@
+/* Hallmark · reference-led Verasett · redesign: restyle · scope: app · copy: verbatim */
+/* Critique: give local file selection the same precise controls and metadata hierarchy as reconciliation. */
+.root { container: source-file / inline-size; min-width: 0; font-family: var(--v2-font); color: var(--v2-ink); }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.header h3 { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: -.01em; }
+.scope { color: var(--v2-muted); font-size: 11px; white-space: nowrap; }
+.dropzone { position: relative; display: flex; align-items: center; gap: 16px; padding: 20px; min-width: 0; border: 1px dashed var(--v2-line-strong); border-radius: var(--v2-radius); background: var(--v2-subtle); }
+.dropzone[data-drag-over="true"] { border-color: var(--v2-accent); background: var(--v2-accent-soft); }
+.dropzone[data-disabled="true"] { color: var(--v2-muted); background: var(--v2-subtle); border-color: var(--v2-line); cursor: not-allowed; }
+.document { display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 40px; border: 1px solid var(--v2-line); border-radius: var(--v2-control-radius); background: var(--v2-surface); color: var(--v2-muted); }
+.document svg { width: 18px; height: 18px; flex-basis: 18px; }
+.instructions { flex: 1; min-width: 0; }
+.instructions strong { font-size: 13px; font-weight: 550; line-height: 1.5; }
+.instructions p { margin-top: 4px; color: var(--v2-muted); font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.choose, .remove { min-height: 36px; padding: 8px 12px; border: 1px solid var(--v2-line-strong); border-radius: var(--v2-control-radius); background: var(--v2-surface); color: inherit; font-size: 13px !important; font-weight: 500 !important; cursor: pointer; flex-shrink: 0; transition: transform 120ms var(--v2-ease); }
+.choose:active:not(:disabled), .remove:active:not(:disabled) { transform: translateY(1px); transition-duration: 0ms; }
+.choose:focus-visible, .remove:focus-visible { outline: 2px solid var(--v2-focus); outline-offset: 3px; }
+.choose:disabled, .remove:disabled { cursor: not-allowed; color: var(--v2-muted); background: var(--v2-subtle); border-color: var(--v2-line); }
+.fileInput, .announcement { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.fileRow { display: flex; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--v2-line); }
+.extension { display: grid; place-items: center; flex: 0 0 40px; width: 40px; height: 40px; border: 1px solid var(--v2-line); border-radius: var(--v2-control-radius); background: var(--v2-subtle); font-size: 10px; color: var(--v2-muted); font-weight: 600; overflow: hidden; }
+.fileDetails { flex: 1; min-width: 0; }
+.fileDetails strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; font-weight: 550; }
+.fileDetails p { margin-top: 4px; font-size: 11px; color: var(--v2-muted); line-height: 1.5; overflow-wrap: anywhere; }
+.evidence { display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; font-size: 11px; line-height: 1.5; color: var(--v2-amber); }
+.evidence svg { width: 12px; height: 12px; flex-basis: 12px; }
+.remove { border-color: var(--v2-transparent); background: var(--v2-transparent); color: var(--v2-muted); }
+.error { display: flex; align-items: flex-start; gap: 8px; margin-top: 12px !important; color: var(--v2-amber); font-size: 12px; line-height: 1.5; }
+.error svg { width: 15px; height: 15px; flex: 0 0 15px; margin-top: 4px; }
+.privacy { margin-top: 12px !important; max-width: 100ch; font-size: 11px; line-height: 1.6; color: var(--v2-muted); }
+@container source-file (max-width: 580px) {
+  .fileRow { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 4px 12px; }
+  .extension { grid-row: span 2; }
+  .evidence { grid-column: 2; grid-row: 2; }
+  .remove { grid-column: 3; grid-row: 1 / span 2; }
+}
+@container source-file (max-width: 390px) {
+  .dropzone { flex-wrap: wrap; padding: 12px; }
+  .instructions { flex-basis: calc(100% - 56px); }
+  .choose { width: 100%; min-height: 44px; }
+  .remove { min-height: 44px; padding-inline: 8px; }
+  .fileRow { column-gap: 8px; }
+  .fileDetails strong { white-space: normal; overflow-wrap: anywhere; }
+  .scope { font-size: 11px; }
+}
+@media (hover: hover) and (pointer: fine) { .choose:hover:not(:disabled), .remove:hover:not(:disabled) { background: var(--v2-subtle); } }
+@media (pointer: coarse) { .choose, .remove { min-height: 44px; } }
+@media (prefers-reduced-motion: reduce) { .choose, .remove, .dropzone { transition: none; } .choose:active:not(:disabled), .remove:active:not(:disabled) { transform: none; } }
